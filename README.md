@@ -10,7 +10,7 @@ there are several programming paradigms, such as `imperative programming`, `proc
 
 ## basics
 
-if you are already familiar with other paradigms like oop or procedural, where you use variables and mutate them until you get the expected result. functional programming is different in a way that instead of mutating states in your application, you define transformations `declaratively` and chain them together to solve your problem.
+if you are already familiar with other paradigms like `OOP` or `procedural`, where you use variables and mutate them until you get the expected result, you'll see that functional programming is different in a way that instead of mutating states in your application, you define transformations `declaratively` and chain them together to solve your problem.
 
 the main idea in functional programming could be summarized as:
 
