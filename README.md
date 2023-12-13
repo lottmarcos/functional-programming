@@ -43,5 +43,56 @@ since functions are the core of our paradigm, we need to handle them carefully. 
 - functions need to be `deterministic`. this means that a function should return the same output for the same input every time it's called.
 - functions should not have `side effects`. they should not read or write anything outside of their body. this means we don't want to make internet requests or read/write to a database within functions. code dealing with side effects should be isolated in the body of the code.
 - functions should operate with `immutability`. we should never mutate any values or variables, we should only create new values from old ones through transformations.
+- in functional programming, functions exclusively accept `a single input`. therefore, when faced with multiple inputs for a function, it is advisable to consider alternative solutions for the problem or assess whether the inputs can be consolidated into a single object. this concept is commonly referred to as a `unary function`.
 
 in essence, we want our functions to be as pure as possible! a `pure function` is a function that has no side effects, is deterministic, and total.
+
+## loops 🔄
+
+it was said that we don't use `for` or `while` loops in functional programming but it wasn't clear how we deal to iteration instead.
+
+in functional programming, the emphasis is on avoiding explicit, mutable state and control structures like `for` or `while` loops. Instead, iteration is typically achieved through higher-order functions like `map`, `filter`, and `reduce`. Let's consider the problem of summing all numbers in an array using imperative programming as a reference:
+
+```typescript
+// Imperative Approach
+function sumAllImperative(array: number[]) {
+  let result = 0;
+
+  for (let i = 0; i < array.length; i++) {
+    result += array[i];
+  }
+
+  return result;
+}
+```
+
+it makes sense, right? we create a `result` variable and we run througout the array and add the value to the result variable and then we return this variable.
+
+now, let's look to the functional programming approach:
+
+```typescript
+// Functional Approach
+function sumAllFunctional(array: number[]) {
+  return array.reduce((acc, curr) => acc + curr, 0);
+}
+```
+
+see how much simpler and cleaner this is! there's no need to create variables and hard-coded loops, we simply leverage our built-in methods for assistance.
+
+an alternative method to address this problem is through recursion. by employing recursion, functional programming underscores the concept of immutability and steers clear of mutable state, rendering the code more predictable and easier to comprehend.
+this approach to iteration aligns with the functional programming principle of declaring transformations explicitly, rather than detailing the procedural steps to accomplish them.
+
+```typescript
+// Recursion Approach
+function sumAllRecursion(array: number[]) {
+  if (array.length === 0) {
+    return 0;
+  }
+
+  return array[0] + sumAllRecursion(array.slice(1));
+}
+```
+
+in this instance, we've established the base case for when the array is empty, returning 0, and the recursive case, returning the sum of the first item in the array and the function applied to the rest of the array.
+
+while recursion can enhance code simplicity, it demands careful consideration. rapid growth in the number of function calls can quickly lead to memory inefficiency. while recursion is the optimal solution for some problems, it's not universally applicable.
