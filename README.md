@@ -43,6 +43,7 @@ since functions are the core of our paradigm, we need to handle them carefully. 
 - functions need to be `deterministic`. this means that a function should return the same output for the same input every time it's called.
 - functions should not have `side effects`. they should not read or write anything outside of their body. this means we don't want to make internet requests or read/write to a database within functions. code dealing with side effects should be isolated in the body of the code.
 - functions should operate with `immutability`. we should never mutate any values or variables, we should only create new values from old ones through transformations. moreover, immutability reinforces the importance of typs, since we don't want to mutate the values or variables type through functions either!
+- in functional programming we commonly use `high-order` functions. they allow us to treat functions as first-class citizens, meaning we can pass them as arguments to other functions, return them as values, and even store them in variables. One common use case for high-order functions is when dealing with collections of data. We can pass a function as an argument to a higher-order function like `map`, `filter`, or `reduce`, and apply that function to each element of the collection. This allows us to perform complex transformations or filtering operations with just a few lines of code.
 - in functional programming, functions exclusively accept `a single input`. therefore, when faced with multiple inputs for a function, it is advisable to consider alternative solutions for the problem or assess whether the inputs can be consolidated into a single object. this concept is commonly referred to as a `unary function`.
 
 in essence, we want our functions to be as pure as possible! a `pure function` is a function that has no side effects, is deterministic, and total.
@@ -230,3 +231,15 @@ Object.freeze(object); // object becomes immutable
 Object.seal(object); // object becomes immutable and non-extensible
 const isFrozen = Object.isFrozen(object); // trueconst isSealed = Object.isSealed(object); // true
 ```
+
+## conclusion 🔚
+
+in conclusion, functional programming provides a powerful paradigm for writing `clean`, `modular`, and `maintainable code`. by focusing on immutable, pure functions, and higher-order functions, functional programming enables developers to write code that is easier to reason about and less prone to bugs.
+
+the array and object methods discussed in this article are essential tools in functional programming. they allow for efficient manipulation and transformation of data, making it easier to work with arrays and objects in a functional style.
+
+by understanding and utilizing these methods, developers can take full advantage of the functional programming paradigm and unlock the benefits it offers. whether you're working with arrays or objects, these methods provide a wide range of functionality to help you write more expressive and efficient code.
+
+functional programming is a valuable skill for any developer, and mastering these array and object methods is a crucial step towards becoming a proficient functional programmer.
+
+and that's all folks! thanks!! 👋👋
