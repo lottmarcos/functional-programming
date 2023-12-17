@@ -43,7 +43,7 @@ since functions are the core of our paradigm, we need to handle them carefully. 
 - functions need to be `deterministic`. this means that a function should return the same output for the same input every time it's called.
 - functions should not have `side effects`. they should not read or write anything outside of their body. this means we don't want to make internet requests or read/write to a database within functions. code dealing with side effects should be isolated in the body of the code.
 - functions should operate with `immutability`. we should never mutate any values or variables, we should only create new values from old ones through transformations. moreover, immutability reinforces the importance of typs, since we don't want to mutate the values or variables type through functions either!
-- in functional programming we commonly use `high-order` functions. they allow us to treat functions as first-class citizens, meaning we can pass them as arguments to other functions, return them as values, and even store them in variables. One common use case for high-order functions is when dealing with collections of data. We can pass a function as an argument to a higher-order function like `map`, `filter`, or `reduce`, and apply that function to each element of the collection. This allows us to perform complex transformations or filtering operations with just a few lines of code.
+- in functional programming we commonly use `high-order` functions. they allow us to treat functions as first-class citizens, meaning we can pass them as arguments to other functions, return them as values, and even store them in variables. one common use case for high-order functions is when dealing with collections of data. we can pass a function as an argument to a higher-order function like `map`, `filter`, or `reduce`, and apply that function to each element of the collection. this allows us to perform complex transformations or filtering operations with just a few lines of code.
 - in functional programming, functions exclusively accept `a single input`. therefore, when faced with multiple inputs for a function, it is advisable to consider alternative solutions for the problem or assess whether the inputs can be consolidated into a single object. this concept is commonly referred to as a `unary function`.
 
 in essence, we want our functions to be as pure as possible! a `pure function` is a function that has no side effects, is deterministic, and total.
@@ -52,10 +52,10 @@ in essence, we want our functions to be as pure as possible! a `pure function` i
 
 it was said that we don't use `for` or `while` loops in functional programming but it wasn't clear how we deal to iteration instead.
 
-in functional programming, the emphasis is on avoiding explicit, mutable state and control structures like `for` or `while` loops. Instead, iteration is typically achieved through higher-order functions like `map`, `filter`, and `reduce`. Let's consider the problem of summing all numbers in an array using imperative programming as a reference:
+in functional programming, the emphasis is on avoiding explicit, mutable state and control structures like `for` or `while` loops. instead, iteration is typically achieved through higher-order functions like `map`, `filter`, and `reduce`. let's consider the problem of summing all numbers in an array using imperative programming as a reference:
 
 ```typescript
-// Imperative Approach
+// imperative approach
 function sumAllImperative(array: number[]) {
   let result = 0;
 
@@ -72,7 +72,7 @@ it makes sense, right? we create a `result` variable and we run througout the ar
 now, let's look to the functional programming approach:
 
 ```typescript
-// Functional Approach
+// functional approach
 function sumAllFunctional(array: number[]) {
   return array.reduce((acc, curr) => acc + curr, 0);
 }
@@ -84,7 +84,7 @@ an alternative method to address this problem is through recursion. by employing
 this approach to iteration aligns with the functional programming principle of declaring transformations explicitly, rather than detailing the procedural steps to accomplish them.
 
 ```typescript
-// Recursion Approach
+// recursion approach
 function sumAllRecursion(array: number[]) {
   if (array.length === 0) {
     return 0;
@@ -108,18 +108,18 @@ checkout the list of the most important built-in methods in javascript:
 
 ### strings 📝
 
-- `charAt(index)`: Returns the character at the specified index. Time complexity is O(1).
-- `concat(string2, string3, ..., stringX)`: Joins two or more strings, and returns a new joined strings. Time complexity is O(n), where n is the total length of all the strings.
-- `includes(searchvalue, start)`: Checks whether a string contains the specified string/characters. Time complexity is O(n), where n is the length of the string.
-- `indexOf(searchvalue, start): `Returns the position of the first found occurrence of a specified value in a string. Time complexity is O(n), where n is the length of the string.
-- `lastIndexOf(searchvalue, start)`: Returns the position of the last found occurrence of a specified value in a string. Time complexity is O(n), where n is the length of the string.
-- `replace(searchvalue, newvalue)`: Searches a string for a specified value, or a regular expression, and returns a new string where the specified values are replaced. Time complexity is O(n), where n is the length of the string.
-- `slice(start, end)`: Extracts a part of a string and returns a new string. Time complexity is O(n), where n is the length of the substring.
-- `split(separator, limit)`: Splits a string into an array of substrings. Time complexity is O(n), where n is the length of the string.
-- `substring(start, end)`: Extracts the characters from a string, between two specified indices, and returns the new sub string. Time complexity is O(n), where n is the length of the substring.
-- `toLowerCase()`: Converts a string to lowercase letters. Time complexity is O(n), where n is the length of the string.
-- `toUpperCase()`: Converts a string to uppercase letters. Time complexity is O(n), where n is the length of the string.
-- `trim()`: Removes whitespace from both ends of a string. Time complexity is O(n), where n is the length of the string.
+- `charAt(index)`: returns the character at the specified index. time complexity is O(1).
+- `concat(string2, string3, ..., stringX)`: joins two or more strings, and returns a new joined strings. time complexity is O(n), where n is the total length of all the strings.
+- `includes(searchvalue, start)`: checks whether a string contains the specified string/characters. time complexity is O(n), where n is the length of the string.
+- `indexOf(searchvalue, start): `returns the position of the first found occurrence of a specified value in a string. time complexity is O(n), where n is the length of the string.
+- `lastIndexOf(searchvalue, start)`: returns the position of the last found occurrence of a specified value in a string. time complexity is O(n), where n is the length of the string.
+- `replace(searchvalue, newvalue)`: searches a string for a specified value, or a regular expression, and returns a new string where the specified values are replaced. time complexity is O(n), where n is the length of the string.
+- `slice(start, end)`: extracts a part of a string and returns a new string. time complexity is O(n), where n is the length of the substring.
+- `split(separator, limit)`: splits a string into an array of substrings. time complexity is O(n), where n is the length of the string.
+- `substring(start, end)`: extracts the characters from a string, between two specified indices, and returns the new sub string. time complexity is O(n), where n is the length of the substring.
+- `toLowerCase()`: converts a string to lowercase letters. time complexity is O(n), where n is the length of the string.
+- `toUpperCase()`: converts a string to uppercase letters. time complexity is O(n), where n is the length of the string.
+- `trim()`: removes whitespace from both ends of a string. time complexity is O(n), where n is the length of the string.
 
 ```typescript
 const string: string = "Hello World";
@@ -140,29 +140,29 @@ const trimmedString: string = string.trim(); // 'Hello World'
 
 ### arrays 📚
 
-- `concat(array2, array3, ..., arrayX)`: Joins two or more arrays, and returns a new joined array. Time complexity is O(n), where n is the total length of all the arrays.
-- `every(callback)`: Checks if all elements in an array pass a test specified by a callback function. Time complexity is O(n), where n is the length of the array.
-- `filter(callback)`: Creates a new array with all elements that pass the test specified by a callback function. Time complexity is O(n), where n is the length of the array.
-- `find(callback)`: Returns the first element in an array that passes a test specified by a callback function. Time complexity is O(n), where n is the length of the array.
-- `findIndex(callback)`: Returns the index of the first element in an array that passes a test specified by a callback function. Time complexity is O(n), where n is the length of the array.
-- `forEach(callback)`: Calls a callback function for each element in an array. Time complexity is O(n), where n is the length of the array.
-- `includes(searchElement, start)`: Checks if an array contains a specified element. Time complexity is O(n), where n is the length of the array.
-- `indexOf(searchElement, start)`: Returns the first index at which a specified element is found in an array. Time complexity is O(n), where n is the length of the array.
-- `join(separator)`: Joins all elements of an array into a string. Time complexity is O(n), where n is the length of the array.
-- `lastIndexOf(searchElement, start)`: Returns the last index at which a specified element is found in an array. Time complexity is O(n), where n is the length of the array.
-- `map(callback)`: Creates a new array with the results of calling a callback function on every element in the array. Time complexity is O(n), where n is the length of the array.
-- `pop()`: Removes the last element from an array and returns that element. Time complexity is O(1).
-- `push(element1, element2, ..., elementX)`: Adds one or more elements to the end of an array and returns the new length of the array. Time complexity is O(1).
-- `reduce(callback, initialValue)`: Applies a callback function against an accumulator and each element in the array (from left to right) to reduce it to a single value. Time complexity is O(n), where n is the length of the array.
-- `reduceRight(callback, initialValue)`: Applies a callback function against an accumulator and each element in the array (from right to left) to reduce it to a single value. Time complexity is O(n), where n is the length of the array.
-- `reverse()`: Reverses the order of the elements in an array. Time complexity is O(n), where n is the length of the array.
-- `shift()`: Removes the first element from an array and returns that element. Time complexity is O(n), where n is the length of the array.
-- `slice(start, end)`: Extracts a section of an array and returns a new array. Time complexity is O(n), where n is the length of the subarray.
-- `some(callback)`: Checks if at least one element in an array passes a test specified by a callback function. Time complexity is O(n), where n is the length of the array.
-- `sort(compareFunction)`: Sorts the elements of an array in place and returns the sorted array. Time complexity is O(n log n), where n is the length of the array.
-- `splice(start, deleteCount, item1, item2, ..., itemX)`: Changes the contents of an array by removing or replacing existing elements and/or adding new elements. Time complexity is O(n), where n is the length of the array.
-- `toString()`: Converts an array to a string and returns the result. Time complexity is O(n), where n is the length of the array.
-- `unshift(element1, element2, ..., elementX)`: Adds one or more elements to the beginning of an array and returns the new length of the array. Time complexity is O(n), where n is the length of the array.
+- `concat(array2, array3, ..., arrayX)`: joins two or more arrays, and returns a new joined array. time complexity is O(n), where n is the total length of all the arrays.
+- `every(callback)`: checks if all elements in an array pass a test specified by a callback function. time complexity is O(n), where n is the length of the array.
+- `filter(callback)`: creates a new array with all elements that pass the test specified by a callback function. time complexity is O(n), where n is the length of the array.
+- `find(callback)`: ceturns the first element in an array that passes a test specified by a callback function. time complexity is O(n), where n is the length of the array.
+- `findIndex(callback)`: ceturns the index of the first element in an array that passes a test specified by a callback function. time complexity is O(n), where n is the length of the array.
+- `forEach(callback)`: calls a callback function for each element in an array. time complexity is O(n), where n is the length of the array.
+- `includes(searchElement, start)`: checks if an array contains a specified element. time complexity is O(n), where n is the length of the array.
+- `indexOf(searchElement, start)`: returns the first index at which a specified element is found in an array. time complexity is O(n), where n is the length of the array.
+- `join(separator)`: joins all elements of an array into a string. time complexity is O(n), where n is the length of the array.
+- `lastIndexOf(searchElement, start)`: returns the last index at which a specified element is found in an array. time complexity is O(n), where n is the length of the array.
+- `map(callback)`: creates a new array with the results of calling a callback function on every element in the array. time complexity is O(n), where n is the length of the array.
+- `pop()`: removes the last element from an array and returns that element. time complexity is O(1).
+- `push(element1, element2, ..., elementX)`: adds one or more elements to the end of an array and returns the new length of the array. time complexity is O(1).
+- `reduce(callback, initialValue)`: applies a callback function against an accumulator and each element in the array (from left to right) to reduce it to a single value. time complexity is O(n), where n is the length of the array.
+- `reduceRight(callback, initialValue)`: applies a callback function against an accumulator and each element in the array (from right to left) to reduce it to a single value. time complexity is O(n), where n is the length of the array.
+- `reverse()`: reverses the order of the elements in an array. time complexity is O(n), where n is the length of the array.
+- `shift()`: removes the first element from an array and returns that element. time complexity is O(n), where n is the length of the array.
+- `slice(start, end)`: extracts a section of an array and returns a new array. time complexity is O(n), where n is the length of the subarray.
+- `some(callback)`: checks if at least one element in an array passes a test specified by a callback function. time complexity is O(n), where n is the length of the array.
+- `sort(compareFunction)`: sorts the elements of an array in place and returns the sorted array. time complexity is O(n log n), where n is the length of the array.
+- `splice(start, deleteCount, item1, item2, ..., itemX)`: changes the contents of an array by removing or replacing existing elements and/or adding new elements. time complexity is O(n), where n is the length of the array.
+- `toString()`: converts an array to a string and returns the result. time complexity is O(n), where n is the length of the array.
+- `unshift(element1, element2, ..., elementX)`: adds one or more elements to the beginning of an array and returns the new length of the array. time complexity is O(n), where n is the length of the array.
 
 ```typescript
 const array: number[] = [1, 2, 3, 4, 5];
@@ -177,7 +177,7 @@ const everyResult = array.every((element) => element > 0); //  true
 const filteredArray = array.filter((element) => element % 2 === 0); //  [2, 4]
 const foundElement = array.find((element) => element > 3); //  4
 const foundIndex = array.findIndex((element) => element > 3); //  3
-array.forEach((element) => console.log(element)); // Prints 1, 2, 3, 4, 5
+array.forEach((element) => console.log(element)); // prints 1, 2, 3, 4, 5
 const includesResult = array.includes(3); //  true
 const indexOfResult = array.indexOf(3); //  2
 const joinedString = array.join(", "); //  "1, 2, 3, 4, 5"
@@ -199,34 +199,34 @@ const unshiftedLength = array.unshift(0); //  6
 
 ### objects 🧱
 
-- `Object.keys(obj)`: Returns an array of a given object's own enumerable property names. Time complexity is O(n), where n is the number of properties in the object.
-- `Object.values(obj)`: Returns an array of a given object's own enumerable property values. Time complexity is O(n), where n is the number of properties in the object.
-- `Object.entries(obj)`: Returns an array of a given object's own enumerable property key-value pairs. Time complexity is O(n), where n is the number of properties in the object.
-- `Object.assign(target, source1, source2, ..., sourceX)`: Copies the values of all enumerable properties from one or more source objects to a target object. Time complexity is O(n), where n is the number of properties in the source objects.
-- `Object.freeze(obj)`: Freezes an object, preventing new properties from being added to it and existing properties from being modified or deleted. Time complexity is O(n), where n is the number of properties in the object.
-- `Object.seal(obj)`: Seals an object, preventing new properties from being added to it and marking all existing properties as non-configurable. Time complexity is O(n), where n is the number of properties in the object.
-- `Object.isFrozen(obj)`: Determines if an object is frozen. Time complexity is O(1).
-- `Object.isSealed(obj)`: Determines if an object is sealed. Time complexity is O(1).
-- `Object.keys(obj)`: Returns an array of a given object's own enumerable property names. Time complexity is O(n), where n is the number of properties in the object.
-- `Object.values(obj)`: Returns an array of a given object's own enumerable property values. Time complexity is O(n), where n is the number of properties in the object.
-- `Object.entries(obj)`: Returns an array of a given object's own enumerable property key-value pairs. Time complexity is O(n), where n is the number of properties in the object.
-- `Object.assign(target, source1, source2, ..., sourceX)`: Copies the values of all enumerable properties from one or more source objects to a target object. Time complexity is O(n), where n is the number of properties in the source objects.
-- `Object.freeze(obj)`: Freezes an object, preventing new properties from being added to it and existing properties from being modified or deleted. Time complexity is O(n), where n is the number of properties in the object.
-- `Object.seal(obj)`: Seals an object, preventing new properties from being added to it and marking all existing properties as non-configurable. Time complexity is O(n), where n is the number of properties in the object.
-- `Object.isFrozen(obj)`: Determines if an object is frozen. Time complexity is O(1).
-- `Object.isSealed(obj)`: Determines if an object is sealed. Time complexity is O(1).
+- `Object.keys(obj)`: returns an array of a given object's own enumerable property names. time complexity is O(n), where n is the number of properties in the object.
+- `Object.values(obj)`: returns an array of a given object's own enumerable property values. time complexity is O(n), where n is the number of properties in the object.
+- `Object.entries(obj)`: returns an array of a given object's own enumerable property key-value pairs. time complexity is O(n), where n is the number of properties in the object.
+- `Object.assign(target, source1, source2, ..., sourceX)`: copies the values of all enumerable properties from one or more source objects to a target object. time complexity is O(n), where n is the number of properties in the source objects.
+- `Object.freeze(obj)`: freezes an object, preventing new properties from being added to it and existing properties from being modified or deleted. time complexity is O(n), where n is the number of properties in the object.
+- `Object.seal(obj)`: seals an object, preventing new properties from being added to it and marking all existing properties as non-configurable. time complexity is O(n), where n is the number of properties in the object.
+- `Object.isFrozen(obj)`: determines if an object is frozen. time complexity is O(1).
+- `Object.isSealed(obj)`: determines if an object is sealed. time complexity is O(1).
+- `Object.keys(obj)`: returns an array of a given object's own enumerable property names. time complexity is O(n), where n is the number of properties in the object.
+- `Object.values(obj)`: returns an array of a given object's own enumerable property values. time complexity is O(n), where n is the number of properties in the object.
+- `Object.entries(obj)`: returns an array of a given object's own enumerable property key-value pairs. time complexity is O(n), where n is the number of properties in the object.
+- `Object.assign(target, source1, source2, ..., sourceX)`: copies the values of all enumerable properties from one or more source objects to a target object. time complexity is O(n), where n is the number of properties in the source objects.
+- `Object.freeze(obj)`: freezes an object, preventing new properties from being added to it and existing properties from being modified or deleted. time complexity is O(n), where n is the number of properties in the object.
+- `Object.seal(obj)`: seals an object, preventing new properties from being added to it and marking all existing properties as non-configurable. time complexity is O(n), where n is the number of properties in the object.
+- `Object.isFrozen(obj)`: determines if an object is frozen. time complexity is O(1).
+- `Object.isSealed(obj)`: determines if an object is sealed. time complexity is O(1).
 
 ```typescript
 type ObjectType = { name: string; age: number };
-const object: ObjectType = { name: "John", age: 30 };
+const object: ObjectType = { name: "john", age: 30 };
 
 const target = {};
-const source = { name: "Jane", age: 25 };
+const source = { name: "jane", age: 25 };
 
 const keys = Object.keys(object); // ["name", "age"]
-const values = Object.values(object); // ["John", 30]
-const entries = Object.entries(object); // [["name", "John"], ["age", 30]]
-Object.assign(target, object, source); // target: { name: "Jane", age: 25 }
+const values = Object.values(object); // ["john", 30]
+const entries = Object.entries(object); // [["name", "john"], ["age", 30]]
+Object.assign(target, object, source); // target: { name: "jane", age: 25 }
 Object.freeze(object); // object becomes immutable
 Object.seal(object); // object becomes immutable and non-extensible
 const isFrozen = Object.isFrozen(object); // trueconst isSealed = Object.isSealed(object); // true
